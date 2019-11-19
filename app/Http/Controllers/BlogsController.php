@@ -20,14 +20,14 @@ class BlogsController extends Controller
         $blog = $this->getData('item/' . $blogId . '.json?print=pretty');
         $blogs[] = $blog;
         if($count>5){break;}
-       }
+      }
 
-       return view('blogs', compact('blogs'));
-     }
+      return view('blogs', compact('blogs'));
+    }
 
     function getData($url){
       $client = new Client();
-      $response = $client->request('GET', 'https://hacker-news.firebaseio.com/v0/item' . $url);
+      $response = $client->request('GET', 'https://hacker-news.firebaseio.com/v0/' . $url);
       $dataJson = $response->getBody()->getContents();
       $data = json_decode($dataJson);
       return $data;
