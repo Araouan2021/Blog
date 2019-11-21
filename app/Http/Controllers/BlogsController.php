@@ -21,6 +21,7 @@ class BlogsController extends Controller
         $blogs[] = $blog;
         if($count>5){break;}
       }
+      //dd($blogs);
 
       return view('blogs', compact('blogs'));
     }
